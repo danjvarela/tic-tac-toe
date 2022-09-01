@@ -1,0 +1,12 @@
+@mixin dflex($direction, $x-alignment, $y-alignment) {
+  display: flex;
+  flex-direction: $direction;
+
+  @if ($direction == row) {
+    justify-content: $x-alignment;
+    align-items: $y-alignment;
+  } @else if ($direction == column) {
+    justify-content: $y-alignment;
+    align-items: $x-alignment;
+  }
+}
