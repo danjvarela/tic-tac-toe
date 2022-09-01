@@ -70,7 +70,11 @@ const resetGame = () => {
 cells.forEach((cell, index) => {
   cell.addEventListener("click", () => {
     tictactoe.mark(convertToPosition(index));
-    renderBoard();
+
+    // don't call renderboard, use this instead to
+    // not trigger the animation on all marks
+    cells[index].innerHTML = markMap[tictactoe.currentPlayer] ?? "";
+
     // make the cell unclickable
     makeUnclickable(cell);
 

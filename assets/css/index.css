@@ -1,4 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@keyframes pop {
+  0% {
+    transform: scale(0);
+  }
+  80% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -55,6 +66,11 @@ body {
   align-items: center;
   font-size: min(12vw, 12vh);
   cursor: pointer;
+}
+.cell i {
+  animation-name: pop;
+  animation-duration: 0.3s;
+  animation-timing-function: cubic-bezier(0, 0, 0.27, 1.43);
 }
 .cell:nth-child(-n+6) {
   border-bottom: 2px solid #f8f9fa;
