@@ -35,11 +35,14 @@ const gameStatus = query("#game-status");
 const prevBtn = query("#prev-btn");
 const nextBtn = query("#next-btn");
 const resetBtn = query("#reset-btn");
+const currentPlayerElem = query("#current-player");
 
 const makeUnclickable = addClass("unclickable");
 const makeClickable = removeClass("unclickable");
 const show = removeClass("d-none");
 const unShow = addClass("d-none");
+const highlight = addClass("highlight");
+const unHighlight = removeClass("highlight");
 
 const markMap = {
   X: xmark,
@@ -55,10 +58,13 @@ const renderBoard = () => {
 const resetGame = () => {
   tictactoe = new TicTacToe();
   renderBoard();
-  // make the cells clickable
-  cells.forEach((cell) => makeClickable(cell));
-  // show these elements
-  [gameStatus, prevBtn, nextBtn].forEach((element) => unShow(element));
+  cells.forEach((cell) => {
+    makeClickable(cell);
+    unHighlight(cell);
+  });
+  [prevBtn, nextBtn, gameStatus].forEach((element) => unShow(element));
+  show(currentPlayerElem);
+  tictactoe.randomPlayer();
 };
 
 cells.forEach((cell, index) => {
@@ -71,12 +77,24 @@ cells.forEach((cell, index) => {
     if (tictactoe.isGameOver) {
       // make all cells unclickable
       cells.forEach((cell) => makeUnclickable(cell));
+
+      // highlight completed cells
+      if (!tictactoe.isDraw) {
+        cells.forEach((cell, index) => {
+          if (tictactoe.completeIndeces.indexOf(index) !== -1)
+            highlight(query("i", cell));
+        });
+      }
+
       [gameStatus, prevBtn, nextBtn].forEach((element) => show(element));
+      unShow(currentPlayerElem);
+
       gameStatus.innerHTML = tictactoe.isDraw
         ? "Draw"
         : `${tictactoe.winner} wins`;
     } else {
       tictactoe.switchPlayer();
+      currentPlayerElem.innerHTML = `${tictactoe.currentPlayer} is playing`;
     }
   });
 });
@@ -92,3 +110,4 @@ prevBtn.addEventListener("click", () => {
 });
 
 tictactoe.randomPlayer();
+currentPlayerElem.innerHTML = `${tictactoe.currentPlayer} is playing`;

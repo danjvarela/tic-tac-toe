@@ -12,6 +12,7 @@ $dark-2: #495057ff;
 $dark-1: #343a40ff;
 $dark-0: #212529ff;
 $accent-0: #264653;
+$accent-1: #e9c46a;
 
 $transition-function: cubic-bezier(0, 0, 0.27, 1.43);
 
@@ -33,6 +34,7 @@ body {
 #game-container {
   @include dflex(column, center, center);
   gap: 2rem;
+  font-size: calc(1rem + min(1.5vw, 1.5vh));
 }
 
 #game-status {
@@ -41,6 +43,10 @@ body {
   background-color: $accent-0;
   width: 100%;
   padding: 0.5rem 1rem;
+}
+
+#current-player {
+  font-size: inherit;
 }
 
 #board {
@@ -95,4 +101,8 @@ body {
 
 .d-none {
   display: none !important;
+}
+
+.highlight {
+  color: $accent-1;
 }

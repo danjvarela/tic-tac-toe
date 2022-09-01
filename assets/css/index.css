@@ -23,6 +23,7 @@ body {
   justify-content: center;
   align-items: center;
   gap: 2rem;
+  font-size: calc(1rem + min(1.5vw, 1.5vh));
 }
 
 #game-status {
@@ -31,6 +32,10 @@ body {
   background-color: #264653;
   width: 100%;
   padding: 0.5rem 1rem;
+}
+
+#current-player {
+  font-size: inherit;
 }
 
 #board {
@@ -86,6 +91,10 @@ body {
 
 .d-none {
   display: none !important;
+}
+
+.highlight {
+  color: #e9c46a;
 }
 
 /*# sourceMappingURL=index.css.map */

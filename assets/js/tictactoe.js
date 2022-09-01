@@ -12,6 +12,7 @@ class TicTacToe {
     this.history = [deepCopy(this.board)];
     this.replayIndex = 0;
     this.player = "X";
+    this.completeIndeces;
   }
 
   get currentBoard() {
@@ -74,6 +75,7 @@ class TicTacToe {
       // true if atleast one of the combinations
       // has each of the indeces included in indexStr
       return winIndexCombinations.split("/").some((combination) => {
+        this.completeIndeces = combination;
         // true if all of the characters in combination
         // is included in indexStr
         return Array.from(combination).every(
@@ -85,7 +87,7 @@ class TicTacToe {
   }
 
   get isDraw() {
-    return this.history.length === 10 && !!this.winner;
+    return this.history.length === 10 && this.winner === undefined;
   }
 
   get isGameOver() {
