@@ -88,3 +88,11 @@ body {
     }
   }
 }
+
+.unclickable {
+  pointer-events: none;
+}
+
+.d-none {
+  display: none !important;
+}

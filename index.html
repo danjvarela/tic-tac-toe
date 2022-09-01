@@ -12,14 +12,10 @@
   </head>
   <body>
     <div id="game-container">
-      <div id="game-status">X wins</div>
+      <div id="game-status" class="d-none">X wins</div>
       <div id="board">
-        <div class="cell">
-          <i class="fa-solid fa-x"></i>
-        </div>
-        <div class="cell">
-          <i class="fa-regular fa-circle"></i>
-        </div>
+        <div class="cell"></div>
+        <div class="cell"></div>
         <div class="cell"></div>
         <div class="cell"></div>
         <div class="cell"></div>
@@ -29,13 +25,13 @@
         <div class="cell"></div>
       </div>
       <div id="nav-btn-container">
-        <button type="button" id="prev-btn">
+        <button type="button" id="prev-btn" class="d-none">
           <i class="fa-solid fa-backward"></i>
         </button>
         <button type="button" id="reset-btn">
           <i class="fa-solid fa-rotate"></i>
         </button>
-        <button type="button" id="next-btn">
+        <button type="button" id="next-btn" class="d-none">
           <i class="fa-solid fa-forward"></i>
         </button>
       </div>

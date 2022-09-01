@@ -80,4 +80,12 @@ body {
   opacity: 1;
 }
 
+.unclickable {
+  pointer-events: none;
+}
+
+.d-none {
+  display: none !important;
+}
+
 /*# sourceMappingURL=index.css.map */
